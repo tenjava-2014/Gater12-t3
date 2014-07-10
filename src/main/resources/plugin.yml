@@ -1,0 +1,3 @@
+name: Gater12-t3
+main: com.tenjava.entries.Gater12.t3.TenJava
+version: '${project.version}'
