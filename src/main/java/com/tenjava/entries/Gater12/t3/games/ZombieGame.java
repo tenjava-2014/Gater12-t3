@@ -5,26 +5,29 @@ import java.util.Set;
 import java.util.UUID;
 
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitTask;
 
+import com.tenjava.entries.Gater12.t3.managers.ZombieGameManager;
 import com.tenjava.entries.Gater12.t3.misc.Difficulty;
 
 public class ZombieGame {
-	private static Set<UUID> ingame = new HashSet<>();
-	public static boolean isInGame(Player p){
-		return ingame.contains(p.getUniqueId());
-	}
 	
-	private Player[] p;
+	private Player p;
 	private int time;
 	private Difficulty d;
+	private BukkitTask bt;
 	
-	public ZombieGame(int time, Difficulty d, Player... p){
+	public ZombieGame(int time, Difficulty d, Player p){
 		this.p = p;
 		this.time = time;
 		this.d = d;
 	}
 	
 	private void init(){
-		
+		ZombieGameManager.INSTANCE.addIntoGame(p, this);
+	}
+	
+	public void stop(){
+		bt.cancel();
 	}
 }
