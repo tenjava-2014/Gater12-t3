@@ -1,0 +1,7 @@
+zombie-game:
+  chance: 10
+  blocks:
+    - LOG
+    - GRASS
+  game-time: 2
+  difficulty: easy
